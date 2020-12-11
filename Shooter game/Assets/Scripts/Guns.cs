@@ -7,6 +7,7 @@ public class Guns : MonoBehaviour
     public float damage = 10f;
     public float range = 100f;
     public float fireRate = 15f;
+    AudioSource shootingSound;
     public Transform muzzleflashPosition;
     public float impactForce = 30;
 
@@ -18,7 +19,7 @@ public class Guns : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        shootingSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -26,6 +27,7 @@ public class Guns : MonoBehaviour
     {
         if(Input.GetButton("Fire1")&& Time.time>=nextTimeTofire)
         {
+            shootingSound.Play();
             nextTimeTofire = Time.time + 1f / fireRate;
             Shoot();
         }
