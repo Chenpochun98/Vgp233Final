@@ -9,12 +9,14 @@ public class movement : MonoBehaviour
     public float speed = 12f;
     public float gravity =-9.81f;
     public float jumpHeight = 3f;
+   
 
     public float groundDis = 0.4f;
     public Transform groundCheck;
     public LayerMask groundMask;
     Vector3 velocity;
     bool isGrounded;
+
     // Update is called once per frame
     void Update()
     {
