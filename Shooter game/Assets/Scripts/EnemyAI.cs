@@ -13,13 +13,14 @@ public class EnemyAI : MonoBehaviour
     private Animator _animator;
     private float dividedSpeed = 0.0f;
     private bool isDead = false;
+    private bool isDestroy = false;
     public float attackRange = 0.0f;
     private float _currentHealth = 0.0f;
-    private float deathClipLength;
+    private float deathClipLength=1.0f;
 
     private void Awake()
     {
-        player = GameObject.FindWithTag("Player").transform;
+
         _animator = gameObject.GetComponent<Animator>();
         if(_animator == null)
         {
@@ -28,31 +29,36 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    
-
     // Update is called once per frame
     void Update()
     {
         UpdateAnimation();
-       
-
-        if (player == null)
-        {
-            return;
-        }
-
-        if (Vector3.SqrMagnitude(_agent.transform.position - player.transform.position) < attackRange * attackRange)
+        if (isDead)
         {
             _agent.isStopped = true;
-            _agent.transform.LookAt(player);
-
+           
         }
         else
         {
-            _agent.isStopped = false;
-            _agent.SetDestination(player.position);
-        }
+            player = GameObject.FindWithTag("Player").transform;
 
+            if (player == null)
+            {
+                return;
+            }
+
+            if (Vector3.SqrMagnitude(_agent.transform.position - player.transform.position) < attackRange * attackRange)
+            {
+                _agent.isStopped = true;
+                _agent.transform.LookAt(player);
+
+            }
+            else
+            {
+                _agent.isStopped = false;
+                _agent.SetDestination(player.position);
+            }
+        }
     }
 
     private void UpdateAnimation()
@@ -118,6 +124,13 @@ public class EnemyAI : MonoBehaviour
         _currentHealth = maxHealth;
         transform.rotation = Quaternion.identity;
         Destroy(_agent);
+        isDestroy = true;
+        if (isDestroy)
+        {
+            print("Ai was destroyed");
+            LevelManger.Instance.deathcount++;
+        }
         ServiceLocator.Get<ObjectPoolManager>().RecycleObject(gameObject);
-   }
+        isDestroy = false;
+    }
 }

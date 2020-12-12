@@ -41,7 +41,7 @@ public class GameLoader : AsyncLoader
 
         // Setup system GameObject
         GameObject systemGO = new GameObject("[Services]");
-        //systemGO.tag = "Services";
+        systemGO.tag = "Services";
         Transform systemParent = systemGO.transform;
         DontDestroyOnLoad(systemGO);
 
@@ -118,4 +118,6 @@ public class GameLoader : AsyncLoader
             yield return loadOp;
         }
     }
+
+   
 }

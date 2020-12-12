@@ -853,7 +853,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneIndexToLoad: 1
   GameModules:
-  - {fileID: 0}
+  - {fileID: 1516923495}
   loadingScreen: {fileID: 361318177}
 --- !u!4 &1516923494
 Transform:

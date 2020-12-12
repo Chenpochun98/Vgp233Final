@@ -31,22 +31,22 @@ public class UnitSpawn : MonoBehaviour
     }
     private IEnumerator SpawnWave(int wavesNumber)
     {
-        for (int i = 0; i < enemiesPerWave; ++i)
-        {
-            GameObject unitGO = Instantiate(UnitPrefab, transform.position, Quaternion.identity);
-            unitGO.GetComponent<EnemyAI>().Init();
-            yield return new WaitForSeconds(0.5f);
-        }
         //for (int i = 0; i < enemiesPerWave; ++i)
         //{
-        //    ObjectPoolManager poolManager = ServiceLocator.Get<ObjectPoolManager>();
-        //    GameObject enemy = poolManager.GetObjectFromPool("Enemy");
-        //    enemy.SetActive(true);
-        //    enemy.transform.position = transform.position;
-        //    enemy.transform.rotation = transform.rotation;
-
-        //    enemy.GetComponent<EnemyAI>().Init();
+        //    GameObject unitGO = Instantiate(UnitPrefab, transform.position, Quaternion.identity);
+        //    unitGO.GetComponent<EnemyAI>().Init();
         //    yield return new WaitForSeconds(0.5f);
         //}
+        for (int i = 0; i < enemiesPerWave; ++i)
+        {
+            ObjectPoolManager poolManager = ServiceLocator.Get<ObjectPoolManager>();
+            GameObject enemy = poolManager.GetObjectFromPool("Enemy");
+            enemy.SetActive(true);
+            enemy.transform.position = transform.position;
+            enemy.transform.rotation = transform.rotation;
+
+            enemy.GetComponent<EnemyAI>().Init();
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 }
