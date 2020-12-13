@@ -832,6 +832,7 @@ GameObject:
   - component: {fileID: 1516923494}
   - component: {fileID: 1516923493}
   - component: {fileID: 1516923495}
+  - component: {fileID: 1516923496}
   m_Layer: 0
   m_Name: GameLoader
   m_TagString: Untagged
@@ -886,6 +887,18 @@ MonoBehaviour:
     prefab: {fileID: 4030539906345055635, guid: 7fd4d548658d7c34fa206cfdc8fc4f19,
       type: 3}
     poolSize: 20
+--- !u!114 &1516923496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516923492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 112e5556a3fcd3f4483003708cd43cbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2139083748
 GameObject:
   m_ObjectHideFlags: 0

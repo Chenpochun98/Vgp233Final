@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor.SceneManagement;
 
 public class LevelManger : MonoBehaviour
 {
@@ -32,4 +33,5 @@ public class LevelManger : MonoBehaviour
     {
         enemyDeathText.text = "EnemyDeathCount: "+ Deathcount.ToString();
     }
+
 }
