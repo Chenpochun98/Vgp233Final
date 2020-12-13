@@ -622,7 +622,7 @@ GameObject:
   - component: {fileID: 4369769392126029609}
   - component: {fileID: -3738977682649999756}
   - component: {fileID: -4989362975745015835}
-  - component: {fileID: 855881376985191402}
+  - component: {fileID: 8217078315621489042}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -638,7 +638,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4030539906345055635}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.9157465, y: -1.423, z: 5.3548746}
+  m_LocalPosition: {x: -0.9157465, y: -1.423, z: 5.257}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8437989640828263802}
@@ -660,7 +660,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 4
   maxHealth: 100
-  player: {fileID: 722680174479868220, guid: c9a3bdc717e7a2e43a2dc5e4ec156d4a, type: 3}
+  player: {fileID: 8472695022767055257, guid: 3f8288cee1e019a4d91411f28d288b0f, type: 3}
   attackRange: 5
 --- !u!95 &-4989362975745015835
 Animator:
@@ -681,8 +681,8 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!65 &855881376985191402
-BoxCollider:
+--- !u!136 &8217078315621489042
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -691,8 +691,9 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.4
+  m_Height: 1.5
+  m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &4062489564905452931
 GameObject:

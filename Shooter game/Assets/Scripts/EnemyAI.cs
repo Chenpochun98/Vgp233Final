@@ -27,36 +27,40 @@ public class EnemyAI : MonoBehaviour
             Debug.LogError("animator compoinaent does exists");
             return;
         }
+        //NavMeshAgent.Warp();
     }
 
     // Update is called once per frame
     void Update()
     {
         UpdateAnimation();
-        if (isDead)
+        if (_agent != null)
         {
-            _agent.isStopped = true;
-           
-        }
-        else
-        {
-            player = GameObject.FindWithTag("Player").transform;
-
-            if (player == null)
-            {
-                return;
-            }
-
-            if (Vector3.SqrMagnitude(_agent.transform.position - player.transform.position) < attackRange * attackRange)
+            if (isDead)
             {
                 _agent.isStopped = true;
-                _agent.transform.LookAt(player);
 
             }
             else
             {
-                _agent.isStopped = false;
-                _agent.SetDestination(player.position);
+                player = GameObject.FindWithTag("Player").transform;
+
+                if (player == null)
+                {
+                    return;
+                }
+
+                if (Vector3.SqrMagnitude(_agent.transform.position - player.transform.position) < attackRange * attackRange)
+                {
+                    _agent.isStopped = true;
+                    _agent.transform.LookAt(player);
+
+                }
+                else
+                {
+                    _agent.isStopped = false;
+                    _agent.SetDestination(player.position);
+                }
             }
         }
     }
